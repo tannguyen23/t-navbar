@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import { Box, IconButton, Stack, Typography, styled } from "@mui/material";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 const StyledBoxNavBarItem = styled(Box)(({ theme, isselected, haschildren }) => ({
     marginRight: theme.spacing(1),
@@ -34,7 +34,9 @@ export default function NavbarItem({ data, isChildren, hasChildren, onToggle, is
 
     const { id, label, icon, path } = data
 
-    const isSelected = data.label === path
+    const { pathname } = useLocation();
+
+    const isSelected = data.path === pathname
 
     const navigate = useNavigate();
 
