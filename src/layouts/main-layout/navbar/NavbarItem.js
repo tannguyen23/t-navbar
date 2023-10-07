@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { Box, IconButton, Stack, Typography, styled } from "@mui/material";
+import { useNavigate } from "react-router";
 
 const StyledBoxNavBarItem = styled(Box)(({ theme, isselected, haschildren }) => ({
     marginRight: theme.spacing(1),
@@ -31,13 +32,22 @@ const StyledBoxNavBarItem = styled(Box)(({ theme, isselected, haschildren }) => 
 
 export default function NavbarItem({ data, isChildren, hasChildren, onToggle, isCollapsed = true }) {
 
-    const path = 'Page A'
+    const { id, label, icon, path } = data
+
     const isSelected = data.label === path
 
-    const { id, label, icon } = data
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate(path);
+    }
+
     return <StyledBoxNavBarItem
         isselected={isSelected ? 1 : 0}
         haschildren={hasChildren ? 1 : 0}
+        onClick={() => {
+            handleNavigate()
+        }}
     >
         <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
             <Stack sx={{ px: 1.5 }} alignItems={'center'}>
