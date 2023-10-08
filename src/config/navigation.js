@@ -14,7 +14,12 @@ export const navConfig = [
         children: [
             { id: uuidv4(), label: 'Page C.1', icon: getIcon() },
             { id: uuidv4(), label: 'Page C.2', icon: getIcon() },
-            { id: uuidv4(), label: 'Page C.3', icon: getIcon() },
+            { id: uuidv4(), label: 'Page C.3', icon: getIcon(), children : [
+                { id: uuidv4(), label: 'Page C.3.1', icon: getIcon() },
+                { id: uuidv4(), label: 'Page C.3.2', icon: getIcon() },
+                { id: uuidv4(), label: 'Page C.3.3', icon: getIcon() },
+                { id: uuidv4(), label: 'Page C.3.4', icon: getIcon() },
+            ] },
         ]
     },
     { id: uuidv4(), label: 'About', path: PATH.about, icon: getIcon() },
