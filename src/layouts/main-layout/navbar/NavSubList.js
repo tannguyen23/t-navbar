@@ -1,12 +1,14 @@
 import { Box, Collapse, } from "@mui/material";
 import NavbarItem from "./NavbarItem";
-import { useState } from "react";
+import { useState, memo } from "react";
 import NavList from "./NavList";
 
-export default function NavSubList({ data }) {
+const NavSubList = ({ data }) => {
+    console.log('re-render')
+
     const hasChildren = data?.children.length > 0
 
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState();
 
     const handleToggle = () => {
         setIsCollapsed(!isCollapsed);
@@ -28,3 +30,5 @@ export default function NavSubList({ data }) {
 
     </Box>
 }
+
+export default memo(NavSubList)

@@ -12,8 +12,6 @@ export default function Navbar({ navConfig }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
-
-
     const handleToggleMenu = () => {
         setIsOpen(prev => !prev)
     }
