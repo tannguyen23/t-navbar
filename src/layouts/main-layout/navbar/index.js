@@ -12,11 +12,6 @@ export default function Navbar({ navConfig }) {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const renderContent = (data) => {
-        if (data?.children) return <NavSubList key={data.id} data={data} />
-        return <NavbarItem key={data?.item} data={data} />
-    }
-
     const handleToggleMenu = () => {
         setIsOpen(prev => !prev)
     }
@@ -26,6 +21,11 @@ export default function Navbar({ navConfig }) {
             setIsOpen(false);
         }
     }, [breakpoint])
+
+    const renderContent = (data) => {
+        if (data?.children) return <NavSubList key={data.id} data={data} />
+        return <NavbarItem key={data?.item} data={data} />
+    }
 
 
     return (
